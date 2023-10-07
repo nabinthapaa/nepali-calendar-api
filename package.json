@@ -4,7 +4,7 @@
   "description": "Nepali Calendar",
   "main": "index.js",
   "scripts": {
-    "test": "npx tsc && nodemon dist/index.js"
+    "start": "npx tsc && nodemon dist/index.js"
   },
   "author": "",
   "license": "ISC",
