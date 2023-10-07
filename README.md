@@ -1,6 +1,11 @@
 # Nepali Calendar API
 
 This API provides Nepali calendar data for a specific year, starting from the year 1992 BS (Bikram Sambat). To use this API, you need to pass the `year` and `month` as query parameters.
+
+```
+   http://localhost:3000/?year=2080&month=10
+```
+
 If not passed current month's data will be displayed.
 
 ## Getting Started
