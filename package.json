@@ -1,0 +1,20 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "Nepali Calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx tsc && nodemon dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.5.1",
+    "jsdom": "^22.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.3",
+    "nodemon": "^3.0.1",
+    "typescript": "^5.2.2"
+  }
+}
