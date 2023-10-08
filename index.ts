@@ -1,23 +1,8 @@
-import axios from "axios";
 import http from "http";
 import { URL } from "url";
+import { getMonth } from "./src";
 
-import { URL_WEB, scraper } from "./src";
-
-async function getMonth(year: string, month: string) {
-  try {
-    let { data } = await axios.post(
-      URL_WEB,
-      `selYear=${year}&selMonth=${month}&viewCalander=View+Calander`,
-      {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      }
-    );
-    return scraper(data);
-  } catch (error) {
-    return error;
-  }
-}
+const MAX = 2081;
 
 const server = http.createServer((req, res) => {
   if (!req.url) return;
@@ -37,6 +22,20 @@ const server = http.createServer((req, res) => {
         "Month: " +
         month
     );
+    if (!!year || !!month)
+      if (
+        Number(year) < 1992 ||
+        Number(year) > MAX ||
+        Number(month) < 1 ||
+        Number(month) > 12
+      ) {
+        res.writeHead(404, { "Content-Type": "application/json" });
+        const data = {
+          error: 404,
+          message: "Data not found. Please check the year and date entered",
+        };
+        res.end(JSON.stringify(data));
+      }
 
     getMonth(year, month)
       .then((data) => {
@@ -53,8 +52,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-const port = 3000;
-
-server.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+server.listen(42069, () => {
+  console.log(`Server is running at http://localhost:${42069}`);
 });

@@ -4,7 +4,9 @@
   "description": "Nepali Calendar",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc && nodemon dist/index.js"
+    "start:ts": "tsc -w",
+    "start:server": "nodemon dist/index.js",
+    "start": "(tsc -w) & (nodemon dist/index.js)"
   },
   "author": "",
   "license": "ISC",

@@ -1,5 +1,6 @@
 import { JSDOM } from "jsdom";
 import { E_DAYS, N_DAYS, getNumber, metadata, monthData } from "..";
+import { MONTHS } from "../constants/constants";
 
 export default function scraper(data: any) {
   let monthData: monthData[] = [];
@@ -13,6 +14,7 @@ export default function scraper(data: any) {
     nep: {
       month: nepali?.split(" ")[0],
       year: getNumber(nepali?.split(" ")[1]),
+      monthIndex: MONTHS.indexOf(nepali?.split(" ")[0]) + 1,
     },
     eng: {
       month: {
@@ -49,7 +51,7 @@ export default function scraper(data: any) {
     }
     monthData.push({
       nep: {
-        date: getNumber(date),
+        date,
         tithi,
         fest,
         day: N_DAYS[currentDay],
@@ -70,6 +72,6 @@ export default function scraper(data: any) {
   });
   return {
     metadata,
-    days: monthData.filter((e) => e.nep.date !== 0),
+    days: monthData.filter((e) => e.nep.date !== ""),
   };
 }
