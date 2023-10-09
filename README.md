@@ -15,7 +15,7 @@ To run the API on your computer, follow these steps:
 1. Clone the repository:
 
    ```bash
-    git clone https://github.com/your-username/nepali-calendar-api.git
+    git clone https://github.com/nabinthapaa/nepali-calendar-api.git
    ```
 
 2. Navigate to the project
@@ -31,6 +31,10 @@ To run the API on your computer, follow these steps:
    ```
 
 ### The server will be available at [https://localhost:3000](https://localhost:3000)
+
+## Data Caching
+
+Data will fetched and cached in the data directory of the root folder in json files.
 
 ## Data Source
 
